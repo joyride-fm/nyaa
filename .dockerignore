@@ -1,0 +1,4 @@
+devroot/
+Dockerfile
+docker-compose.yml
+.git*

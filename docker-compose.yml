@@ -1,0 +1,19 @@
+volumes:
+  nyaaroot: {}
+
+services:
+  nyaa-dev:
+    build: .
+    image: nyaa-dev
+    container_name: nyaa-dev
+    ports:
+      - '0.0.0.0:5173:5173'
+    volumes:
+      - nyaaroot:/root/
+      # here should also probably be some sort of sources mount (for live reloading)
+    tty: true
+    stop_signal: SIGINT
+
+# docker compose up -d --build
+# docker exec -it nyaa-dev firebase emulators:start
+# docker exec -it nyaa-dev pnpm run dev --host
